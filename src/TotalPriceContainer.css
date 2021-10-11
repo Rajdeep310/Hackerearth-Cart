@@ -1,0 +1,21 @@
+.gap{
+    height: 5vh;
+}
+.totalPriceContainer{
+    padding-left: 1vh;
+}
+.bord{
+    border: 1px solid lightgray;
+}
+.line{
+    display: flex;
+    justify-content: space-around;
+}
+.total{
+    min-height: 5vh;
+    background-color: lightpink;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4vh;
+}
