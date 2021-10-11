@@ -5,16 +5,23 @@ const AppContext = createContext();
 
 const AppProvider = ({ children }) => {
     const { Datas } = DataStore;
-
+    const [newCart, setNewCart] = useState(Datas);
     const [flag, setflag] = useState(false);
+    let localdata = newCart;
     console.log(Datas)
+
+    useEffect(() => {
+
+        localStorage.setItem('CartItems', JSON.stringify(localdata))
+    }, [newCart]);
 
 
 
     return <AppContext.Provider value={
         {
             Datas,
-            flag
+            flag,
+            newCart
         }} >{children}</AppContext.Provider>
 }
 
