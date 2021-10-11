@@ -4,11 +4,16 @@ import DataStore from './DataStore';
 const AppContext = createContext();
 
 const AppProvider = ({ children }) => {
+
     const { Datas } = DataStore;
     const [newCart, setNewCart] = useState(Datas);
     const [flag, setflag] = useState(false);
     let localdata = newCart;
     let fictionDiscount;
+
+    const totalPrice = newCart.reduce((a, c) => a + c.price * c.qty, 0);
+    const discountPrice = newCart.reduce((a, c) => a + c.discount * c.qty, 0);
+
 
     useEffect(() => {
 
@@ -19,6 +24,7 @@ const AppProvider = ({ children }) => {
         setNewCart(Datas)
     }
 
+
     {/* Function to remove an item*/}
     const deleteItem=(id)=>{
         console.log(id)
@@ -26,6 +32,8 @@ const AppProvider = ({ children }) => {
         setflag(true);
         setTimeout(()=>{ setflag(false)}, 2000);
     }
+
+
      {/* Function for increasing the quantity of an item */}
      const itemAdded = (item) => {
         
@@ -37,6 +45,7 @@ const AppProvider = ({ children }) => {
             setNewCart([...newCart, { ...item, qty: 1 }]);
         }
     }
+
 
     {/* Function for decreasing the quantity of an item */}
     const itemRemoved = (item) => {
@@ -52,8 +61,6 @@ const AppProvider = ({ children }) => {
 
     }
 
-    const totalPrice = newCart.reduce((a, c) => a + c.price * c.qty, 0);
-    const discountPrice = newCart.reduce((a, c) => a + c.discount * c.qty, 0);
 
     {/* Function for calculating discount for items having type='fiction' */}
     const calculateFictionDiscount=()=>{
@@ -66,21 +73,22 @@ const AppProvider = ({ children }) => {
         }
         fictionDiscount=fictionAmount-fifteenPercentDiscount
     }
+
     calculateFictionDiscount();
 
 
     return <AppContext.Provider value={
         {
             Datas,
-            onRefresh,
             flag,
             newCart,
+            totalPrice,
+            discountPrice,
+            fictionDiscount,
+            onRefresh,
             deleteItem,
             itemAdded,
             itemRemoved,
-            totalPrice,
-            discountPrice,
-            fictionDiscount
         }} >{children}</AppContext.Provider>
     }
 

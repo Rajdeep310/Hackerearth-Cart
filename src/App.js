@@ -10,7 +10,7 @@ function App() {
 
   const {newCart,onRefresh,flag} = useContext(AppContext);
   const flagdata = <div className='danger'>Item Removed</div>
-  console.log(newCart.length)
+
 
   return (
     <div className="App">
