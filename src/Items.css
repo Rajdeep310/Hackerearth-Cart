@@ -8,6 +8,22 @@
     flex-direction: col;
     align-items: center;
 }
+.bord{
+    border: 0.4px solid  lightgrey;
+
+}
+.max{
+    height: 3.5vh;
+    width: 3.5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.single-item{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 .flex-3{
     flex: 3;
     min-width: 50%;
@@ -24,4 +40,20 @@
     align-items: center;
     justify-content: space-between;
     min-width:15%;
+}
+
+.mid{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+ 
+}
+.col{
+    padding: 2vh 2vh;
+}
+.pointer{
+    cursor: pointer;
+}
+.grey-hover :hover{
+    color: red;
 }

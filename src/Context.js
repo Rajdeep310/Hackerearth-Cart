@@ -19,6 +19,14 @@ const AppProvider = ({ children }) => {
         setNewCart(Datas)
     }
 
+    {/* Function to remove an item*/}
+    const deleteItem=(id)=>{
+        console.log(id)
+        setNewCart(newCart.filter((x) => x.id !== id));
+        setflag(true);
+        setTimeout(()=>{ setflag(false)}, 2000);
+    }
+
 
 
     return <AppContext.Provider value={
@@ -26,7 +34,8 @@ const AppProvider = ({ children }) => {
             Datas,
             onRefresh,
             flag,
-            newCart
+            newCart,
+            deleteItem
         }} >{children}</AppContext.Provider>
     }
 
