@@ -52,6 +52,9 @@ const AppProvider = ({ children }) => {
 
     }
 
+    const totalPrice = newCart.reduce((a, c) => a + c.price * c.qty, 0);
+    const discountPrice = newCart.reduce((a, c) => a + c.discount * c.qty, 0);
+
 
     return <AppContext.Provider value={
         {
@@ -61,7 +64,9 @@ const AppProvider = ({ children }) => {
             newCart,
             deleteItem,
             itemAdded,
-            itemRemoved
+            itemRemoved,
+            totalPrice,
+            discountPrice
         }} >{children}</AppContext.Provider>
     }
 
