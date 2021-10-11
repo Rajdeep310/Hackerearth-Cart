@@ -38,6 +38,19 @@ const AppProvider = ({ children }) => {
         }
     }
 
+    {/* Function for decreasing the quantity of an item */}
+    const itemRemoved = (item) => {
+        const exist = newCart.find((x) => x.id === item.id);
+        if (exist.qty === 1) {
+            setNewCart(newCart.filter((x) => x.id !== item.id))
+            setflag(true);
+        setTimeout(()=>{ setflag(false)}, 2000);
+        }
+        else {
+            setNewCart(newCart.map(x => x.id === item.id ? { ...exist, qty: exist.qty - 1 } : x))
+        }
+
+    }
 
 
     return <AppContext.Provider value={
@@ -47,7 +60,8 @@ const AppProvider = ({ children }) => {
             flag,
             newCart,
             deleteItem,
-            itemAdded
+            itemAdded,
+            itemRemoved
         }} >{children}</AppContext.Provider>
     }
 
