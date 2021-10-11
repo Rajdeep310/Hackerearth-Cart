@@ -2,6 +2,9 @@ import React, { useContext } from 'react'
 import { AppContext } from './Context';
 import SingleItem from './SingleItem';
 
+import './Items.css'
+import './App.css'
+
 function Items() {
     const {newCart } = useContext(AppContext);
     return (
