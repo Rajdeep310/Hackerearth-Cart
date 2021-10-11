@@ -6,14 +6,15 @@ import TotalPriceContainer from './TotalPriceContainer'
 
 import { AppContext } from './Context'
 
-
 function App() {
 
-  const NewData = useContext(AppContext);
-  console.log(NewData)
+  const {newCart,flag} = useContext(AppContext);
+  const flagdata = <div className='danger'>Item Removed</div>
 
   return (
     <div className="App">
+      {/* Line 17 displays flag data when flag variable is true */}
+      {flag && flagdata}  
       <div className="main-container">
         <Items />
 

@@ -6,7 +6,7 @@ const AppContext = createContext();
 const AppProvider = ({ children }) => {
     const { Datas } = DataStore;
     const [newCart, setNewCart] = useState(Datas);
-    const [flag, setflag] = useState(false);
+    const [flag, setflag] = useState(true);
     let localdata = newCart;
     console.log(Datas)
 
@@ -14,6 +14,8 @@ const AppProvider = ({ children }) => {
 
         localStorage.setItem('CartItems', JSON.stringify(localdata))
     }, [newCart]);
+
+    
 
 
 
