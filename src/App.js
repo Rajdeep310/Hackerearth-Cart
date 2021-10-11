@@ -8,7 +8,7 @@ import { AppContext } from './Context'
 
 function App() {
 
-  const {newCart,flag} = useContext(AppContext);
+  const {newCart,onRefresh,flag} = useContext(AppContext);
   const flagdata = <div className='danger'>Item Removed</div>
   console.log(newCart.length)
 
@@ -22,7 +22,7 @@ function App() {
         <TotalPriceContainer />
       </div>
       {/* Reload button for reloading items when all items are removed */}
-      {newCart.length === 0 && <button >Reload All Items</button>}
+      {newCart.length === 0 && <button onClick={onRefresh}>Reload All Items</button>}
       
     </div>
   );

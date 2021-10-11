@@ -15,16 +15,19 @@ const AppProvider = ({ children }) => {
         localStorage.setItem('CartItems', JSON.stringify(localdata))
     }, [newCart]);
 
-    
+    const onRefresh = () => {
+        setNewCart(Datas)
+    }
 
 
 
     return <AppContext.Provider value={
         {
             Datas,
+            onRefresh,
             flag,
             newCart
         }} >{children}</AppContext.Provider>
-}
+    }
 
 export { AppContext, AppProvider }
