@@ -6,8 +6,8 @@ import './App.css'
 
 function TotalPriceContainer() {
 
-    const { newCart, totalPrice, discountPrice } = useContext(AppContext);
-    const orderTotal = totalPrice - discountPrice ;
+    const { newCart, totalPrice, discountPrice, fictionDiscount } = useContext(AppContext);
+    const orderTotal = totalPrice - discountPrice;
     return (
         <div className='totalPriceContainer'>
             <div className='gap'></div>
@@ -18,6 +18,9 @@ function TotalPriceContainer() {
                 </div>
                 <div className="line">
                     <div> Discount</div> : <div>$ {discountPrice}</div>
+                </div>
+                <div className="line">
+                    <div>Type Discount</div> : <div>${fictionDiscount}</div>
                 </div>
                 <div className=" line total">
                     <div> <h3>Order Total</h3>   </div>  :   <h3>$ {orderTotal}</h3>

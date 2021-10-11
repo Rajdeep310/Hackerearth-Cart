@@ -8,7 +8,7 @@ const AppProvider = ({ children }) => {
     const [newCart, setNewCart] = useState(Datas);
     const [flag, setflag] = useState(false);
     let localdata = newCart;
-    console.log(Datas)
+    let fictionDiscount;
 
     useEffect(() => {
 
@@ -55,6 +55,19 @@ const AppProvider = ({ children }) => {
     const totalPrice = newCart.reduce((a, c) => a + c.price * c.qty, 0);
     const discountPrice = newCart.reduce((a, c) => a + c.discount * c.qty, 0);
 
+    {/* Function for calculating discount for items having type='fiction' */}
+    const calculateFictionDiscount=()=>{
+        let fifteenPercentDiscount=0,fictionAmount=0;
+        for(let i=0;i<newCart.length;i++){
+            
+            if(newCart[i].type==='fiction')
+            fictionAmount+=newCart[i].price *newCart[i].qty
+            fifteenPercentDiscount=fictionAmount*0.85
+        }
+        fictionDiscount=fictionAmount-fifteenPercentDiscount
+    }
+    calculateFictionDiscount();
+
 
     return <AppContext.Provider value={
         {
@@ -66,7 +79,8 @@ const AppProvider = ({ children }) => {
             itemAdded,
             itemRemoved,
             totalPrice,
-            discountPrice
+            discountPrice,
+            fictionDiscount
         }} >{children}</AppContext.Provider>
     }
 
