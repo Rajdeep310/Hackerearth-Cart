@@ -1,10 +1,17 @@
-import logo from './logo.svg';
+
 import './App.css';
+
+import Items from './Items'
+import TotalPriceContainer from './TotalPriceContainer'
 
 function App() {
   return (
     <div className="App">
-      Hi
+      <div className="main-container">
+        <Items />
+
+        <TotalPriceContainer />
+      </div>
     </div>
   );
 }
