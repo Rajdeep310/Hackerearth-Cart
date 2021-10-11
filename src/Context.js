@@ -2,11 +2,12 @@ import { createContext, useState, useEffect } from "react";
 import DataStore from './DataStore';
 
 const AppContext = createContext();
+const cartFromLocalStorage = JSON.parse(localStorage.getItem('CartItems'));
 
 const AppProvider = ({ children }) => {
 
     const { Datas } = DataStore;
-    const [newCart, setNewCart] = useState(Datas);
+    const [newCart, setNewCart] = useState(cartFromLocalStorage);
     const [flag, setflag] = useState(false);
     let localdata = newCart;
     let fictionDiscount;
