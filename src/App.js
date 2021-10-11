@@ -14,7 +14,7 @@ function App() {
 
   return (
     <div className="App">
-      {/* Line 17 displays flag data when flag variable is true */}
+      {/* Line 18 displays flag data when flag variable is true */}
       {flag && flagdata}  
       <div className="main-container">
         <Items />
