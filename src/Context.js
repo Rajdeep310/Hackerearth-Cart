@@ -26,6 +26,17 @@ const AppProvider = ({ children }) => {
         setflag(true);
         setTimeout(()=>{ setflag(false)}, 2000);
     }
+     {/* Function for increasing the quantity of an item */}
+     const itemAdded = (item) => {
+        
+        const exist = newCart.find(x => x.id === item.id);
+        if (exist) {
+            setNewCart(newCart.map(x => x.id === item.id ? { ...exist, qty: exist.qty + 1 } : x))
+        }
+        else {
+            setNewCart([...newCart, { ...item, qty: 1 }]);
+        }
+    }
 
 
 
@@ -35,7 +46,8 @@ const AppProvider = ({ children }) => {
             onRefresh,
             flag,
             newCart,
-            deleteItem
+            deleteItem,
+            itemAdded
         }} >{children}</AppContext.Provider>
     }
 

@@ -4,7 +4,7 @@ import './Items.css'
 
 function SingleItem(item) {
 
-    const { deleteItem } = useContext(AppContext);
+    const {itemAdded, deleteItem } = useContext(AppContext);
     const { name, price, qty, img_url, id } = item;
     const totalPrice = price * qty;
     return (
@@ -16,7 +16,7 @@ function SingleItem(item) {
             </div>
 
             <div className="flex-1  ">
-                <h2 className='mid pointer grey-hover'>+</h2>
+                <h2 className='mid pointer grey-hover' onClick={() => itemAdded(item)}>+</h2>
                 <h4 className='mid'><div className=" max bord">{qty}</div></h4>
                 <h2 className='mid pointer grey-hover'>-</h2>
             </div>
