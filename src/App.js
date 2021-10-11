@@ -10,6 +10,7 @@ function App() {
 
   const {newCart,flag} = useContext(AppContext);
   const flagdata = <div className='danger'>Item Removed</div>
+  console.log(newCart.length)
 
   return (
     <div className="App">
@@ -20,6 +21,9 @@ function App() {
 
         <TotalPriceContainer />
       </div>
+      {/* Reload button for reloading items when all items are removed */}
+      {newCart.length === 0 && <button >Reload All Items</button>}
+      
     </div>
   );
 }
