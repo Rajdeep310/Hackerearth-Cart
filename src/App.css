@@ -21,3 +21,24 @@
   justify-content: center;
   align-items: center;
 }
+.Items{
+  flex: 2;
+}
+.totalPriceContainer{
+  flex: 1;
+}
+.danger{
+  width: 100vh;
+  height: 3vh;
+  background-color: rgb(202, 98, 98);
+  color: rgb(248, 247, 247);
+  font-weight: bold;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .main-container {flex-direction: column;}
+}

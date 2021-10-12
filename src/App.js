@@ -22,7 +22,7 @@ function App() {
         <TotalPriceContainer />
       </div>
       {/* Reload button for reloading items when all items are removed */}
-      {newCart.length === 0 && <button onClick={onRefresh}>Reload All Items</button>}
+      {newCart.length === 0 && <button  onClick={onRefresh}>Reload All Items</button>}
       
     </div>
   );
